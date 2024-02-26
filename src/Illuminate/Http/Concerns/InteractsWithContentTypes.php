@@ -35,7 +35,7 @@ trait InteractsWithContentTypes
     {
         $acceptable = $this->getAcceptableContentTypes();
 
-        return isset($acceptable[0]) && Str::contains(strtolower($acceptable[0]), ['/json', '+json']);
+        return isset($acceptable[0]) && Str::contains(strtolower($acceptable[0]), ['/json', '+json', '*/*']);
     }
 
     /**

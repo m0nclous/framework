@@ -1225,6 +1225,10 @@ class HttpRequestTest extends TestCase
         $this->assertSame('json', $request->format());
         $this->assertTrue($request->wantsJson());
 
+        $request = Request::create('/', 'GET', [], [], [], ['HTTP_ACCEPT' => '*/*']);
+        $this->assertSame('html', $request->format());
+        $this->assertTrue($request->wantsJson());
+
         $request = Request::create('/', 'GET', [], [], [], ['HTTP_ACCEPT' => 'application/atom+xml']);
         $this->assertSame('atom', $request->format());
         $this->assertFalse($request->wantsJson());
